@@ -1,0 +1,18 @@
+# Email Configuration
+mail.default.address=
+mail.google.app.password=
+
+# Database Configuration
+db.url=jdbc:mysql://localhost:3306/acebank_lite
+db.user=root
+db.password=
+db.script.path=/sql/schema_initializer.sql
+db.mysql.driver=com.mysql.cj.jdbc.Driver
+
+# SMTP Server Settings
+mail.smtp.host=smtp.gmail.com
+mail.smtp.port=587
+mail.smtp.auth=true
+mail.smtp.starttls.enable=true
+mail.smtp.connection-timeout=5000
+mail.smtp.timeout=5000

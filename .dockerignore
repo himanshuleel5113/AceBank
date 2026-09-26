@@ -1,0 +1,13 @@
+target/
+.idea/
+*.iml
+.git/
+.gitignore
+*.md
+.vscode/
+.settings/
+.classpath
+.project
+nbproject/
+nb-configuration.xml
+src/main/resources/application-dev.properties

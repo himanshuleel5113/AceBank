@@ -1,0 +1,20 @@
+# Railway deployment configuration for AceBank
+# Build uses the Dockerfile in the project root.
+
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# Restart the container automatically on failure, up to 10 times.
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+# Required environment variables (set these in the Railway dashboard, not here):
+#   DB_URL         jdbc:mysql://<host>:<port>/<database>   (Aiven MySQL connection string)
+#   DB_USER        Aiven MySQL username
+#   DB_PASSWORD    Aiven MySQL password
+#   DB_SCRIPT_PATH sql/schema_initializer.sql
+#   MAIL_DEFAULT_ADDRESS       Gmail address used to send OTP / notification emails
+#   MAIL_GOOGLE_APP_PASSWORD   Gmail app password
+#   APP_BASE_URL   https://<your-app>.up.railway.app
