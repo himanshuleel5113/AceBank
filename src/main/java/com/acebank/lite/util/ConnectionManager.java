@@ -57,9 +57,10 @@ public final class ConnectionManager {
             throw new RuntimeException("Database configuration missing. Set DB_URL, DB_USER, DB_PASSWORD env vars or application-dev.properties");
         }
 
-        // Ensure SSL for remote databases (Aiven requires it)
-        if (url.contains("aivencloud") && !url.contains("useSSL")) {
-            url += url.contains("?") ? "&useSSL=true&requireSSL=true" : "?useSSL=true&requireSSL=true";
+        // Ensure SSL for remote databases (Aiven requires it).
+        // MySQL Connector/J 8.x uses sslMode instead of legacy useSSL/requireSSL.
+        if (url.contains("aivencloud") && !url.contains("sslMode")) {
+            url += url.contains("?") ? "&sslMode=REQUIRED" : "?sslMode=REQUIRED";
         }
 
         HikariConfig config = new HikariConfig();

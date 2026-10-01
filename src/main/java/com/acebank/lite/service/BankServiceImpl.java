@@ -163,6 +163,7 @@ public class BankServiceImpl implements BankService {
             }
         } catch (Exception e) {
             log.severe("Signup Error: " + e.getMessage());
+            e.printStackTrace();
         }
         return Optional.empty();
     }
