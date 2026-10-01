@@ -28,8 +28,10 @@ public class MailUtil {
             // Get email configuration
             String fromAddr = ConfigLoader.getProperty(ConfigKeys.MAIL_ADDR);
             String password = ConfigLoader.getProperty(ConfigKeys.MAIL_PWD);
-            String host = ConfigLoader.getProperty(ConfigKeys.MAIL_SMTP_HOST);
-            String port = ConfigLoader.getProperty(ConfigKeys.MAIL_SMTP_PORT);
+            // Host/port are not secrets and are absent in production (no properties file),
+            // so default to Gmail SMTP. Still overridable via MAIL_SMTP_HOST / MAIL_SMTP_PORT.
+            String host = ConfigLoader.getProperty(ConfigKeys.MAIL_SMTP_HOST, "smtp.gmail.com");
+            String port = ConfigLoader.getProperty(ConfigKeys.MAIL_SMTP_PORT, "587");
 
             log.info("Email Config - From: " + fromAddr + ", Host: " + host + ", Port: " + port);
 
